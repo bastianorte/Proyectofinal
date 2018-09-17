@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+<h1>Families</h1>
+</div>
+
+
+<% @families.each do |family| %>
+<div class="row">
+
+
+      <div class="col"> <%= family.name %> </div>
+      <div class="col">  <%= family.photo %> </div>
+      <div class="col">  <%= link_to 'Show', family %> </div>
+      <div class="col">  <%= link_to 'Edit', edit_family_path(family) %> </div>
+      <div class="col">  <%= link_to 'Destroy', family, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+<div class="col"></div>
+
+</div>
+<% end %>
+<div class="row">
+<%= link_to 'New Family', new_family_path %>
+</div>
+<div class="row">
+    <h1>Usuarios</h1>
+    </div>
+    <% @users.each do |users| %>
+    <div class="row">
+
+        <div class="col"> <%= users.email %> </div>
+        <div class="col"> <%= users.name %> </div>
+        <div class="col"> <%= users.photo %> </div>
+        <div class="col"> <%= users.family_id %> </div>
+        <div class="col"> <%= users.daily_calories %> </div>
+        <div class="col-6"></div>
+
+
+
+    </div>
+    <% end %>
+    <div class="row">
+    <div class="col">  <%= link_to 'nuevo usuario', new_user_registration_path  %> </div>
+</div>
