@@ -28,5 +28,5 @@ class User < ApplicationRecord
     def to_carbohydrates
     end
 
-
+    mount_uploader :photo, PhotoUploader
 end

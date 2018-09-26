@@ -17,7 +17,7 @@
            Ingreso
           <% end %>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <% if user_signed_in? %>
           <%= link_to "Salir", destroy_user_session_path,  method: :delete, class: "dropdown-item" %>
           <% else %>
@@ -26,6 +26,7 @@
           <% end %>
         </div>
       </li>
+
 
     </ul>
   </div>
