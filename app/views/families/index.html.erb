@@ -17,30 +17,53 @@
       <div class="col">  <%= link_to 'Show', family %> </div>
       <div class="col">  <%= link_to 'Edit', edit_family_path(family) %> </div>
       <div class="col">  <%= link_to 'Destroy', family, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
-<div class="col"></div>
 
 </div>
 <% end %>
 <div class="row">
 <%= link_to 'New Family', new_family_path %>
 </div>
+
+
+
+
 <div class="row">
     <h1>Usuarios</h1>
     </div>
-    <% @users.each do |users| %>
-    <div class="row">
 
-        <div class="col"> <%= users.email %> </div>
-        <div class="col"> <%= users.name %> </div>
-        <div class="col"> <%= users.photo %> </div>
-        <div class="col"> <%= users.family_id %> </div>
-        <div class="col"> <%= users.daily_calories %> </div>
-        <div class="col-6"></div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+            <div class="col">Foto</div>
+            <div class="col">Email</div>
+            <div class="col">Nombre</div>
+            <div class="col">Edad</div>
+            <div class="col">Familia</div>
+            <div class="col">Calorias que debes consumir</div>
+        </div>
+        </div>
+        </div>
 
 
+    <% @users.each do |user| %>
+    <div class="card">
+      <div class="card-body">
+            <div class="row">
+        <div class="col"> <img src="<%= user.photo.thumb %>">  </div>
+        <div class="col"> <%= user.email %> </div>
+        <div class="col"> <%= user.name %> </div>
+        <div class="col"> <%= user.age %> </div>
+        <div class="col"> <%= user.family_id %> </div>
+        <div class="col"> <%= user.daily_calories %> </div>
 
-    </div>
+
+        </div>
+      </div>
+      </div>
     <% end %>
+
+
+
     <div class="row">
     <div class="col">  <%= link_to 'nuevo usuario', new_user_registration_path  %> </div>
 </div>

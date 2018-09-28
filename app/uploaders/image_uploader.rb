@@ -1,8 +1,8 @@
-class PhotoUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-   include CarrierWave::MiniMagick
-   process resize_to_fit: [400, 400]
+  include CarrierWave::MiniMagick
+  process resize_to_fit: [400, 400]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -18,9 +18,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
    def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  "/uploads/user/photo/52/thumb_default-user-image.png"
+  "thumb_kisspng-fizzy-drinks-computer-icons-meal-food-lunch-food-icon-5ac500dc6676c0.3955393615228602524197.jpg"
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-   end
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -30,9 +30,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-   version :thumb do
-     process resize_to_fit: [100, 100]
-   end
+  version :thumb do
+    process resize_to_fit: [100, 100]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

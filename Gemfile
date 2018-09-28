@@ -6,7 +6,7 @@ gem 'carrierwave'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
-
+gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
