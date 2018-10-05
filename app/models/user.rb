@@ -6,28 +6,28 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
-         has_many :events
-         has_many :foods, through: :events
+  has_many :events
+  has_many :foods, through: :events
 
-         enum role: [:admin, :visit]
+ enum role: [:admin, :visit]
 
-         after_create :to_proteins
-         after_update :to_proteins
+ before_create :to_proteins
+ before_update :to_proteins
 
-         def to_proteins
-        self.daily_proteins = weight
-          end
+def to_proteins
+   self.daily_proteins = weight
+end
 
-          after_create :to_calories
-          after_update :to_calories
+  before_create :to_calories
+  before_update :to_calories
 
-        def to_calories
-          self.daily_calories = 66 
-        end
+def to_calories
+  self.daily_calories = 66
+end
 
-    def to_carbohydrates
-    end
+def to_carbohydrates
+end
 
 end

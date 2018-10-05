@@ -14,6 +14,9 @@
 //= require activestorage
 //= require jquery
 //= require turbolinks
+//= require Chart.bundle
+//= require chartkick
+//= require Chart.min
 //= require ekko-lightbox.min
 //= require aos
 //= require popper

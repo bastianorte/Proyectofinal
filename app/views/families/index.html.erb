@@ -24,9 +24,6 @@
 <%= link_to 'New Family', new_family_path %>
 </div>
 
-
-
-
 <div class="row">
     <h1>Usuarios</h1>
     </div>
@@ -35,29 +32,70 @@
       <div class="card-body">
         <div class="row">
             <div class="col">Foto</div>
-            <div class="col">Email</div>
-            <div class="col">Nombre</div>
-            <div class="col">Edad</div>
-            <div class="col">Familia</div>
-            <div class="col">Calorias que debes consumir</div>
+            <div class="col-6">Caracteristicas</div>
+            <div class="col">Estadisticas</div>
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
 
 
     <% @users.each do |user| %>
     <div class="card">
       <div class="card-body">
-            <div class="row">
-        <div class="col"> <img src="<%= user.photo.thumb %>">  </div>
-        <div class="col"> <%= user.email %> </div>
-        <div class="col"> <%= user.name %> </div>
-        <div class="col"> <%= user.age %> </div>
-        <div class="col"> <%= user.family_id %> </div>
-        <div class="col"> <%= user.daily_calories %> </div>
+          <div class="row">
+            <div class="col"><img src="<%= user.photo.thumb %>">  </div>
+            <div class="col-6">
+                Nombre: <%= user.name %> <br>
+                Edad: <%= user.age %><br>
+                Peso: <%= user.weight %><br>
+                Altura: <%= user.height %><br>
+                Email: <%= user.email %><br>
 
-
+            </div>
+            <div class="col"> <%= user.daily_calories %> </div>
+            <div class="col"></div>
         </div>
+          <div class="row"><div class="col">
+
+            <%= link_to 'Nuevo alimento', new_family_path,  { 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-outline-primary btn-sm'}  %>
+
+            <div id="modal-window" class="modal" role="dialog" aria-labelledby="myModalLabel">
+
+              <div class="modal-dialog" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+
+                          <%= form_for(@event) do |f| %>
+                            <div class="field">
+                            <%= f.label :food_id %>
+                            <%= f.collection_select(:food_id, Food.all, :id, :name) %>
+                            </div>
+                            <%= f.hidden_field :user_id, :value => user.id %>
+
+
+
+
+                        </p>
+                      </div>
+  <div class="modal-footer">
+    <%= f.submit %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><% end %>
+  </div>
+
+              </div>
+
+            </div>
+        </div>
+
+      </div>
       </div>
       </div>
     <% end %>
@@ -66,7 +104,7 @@
 
     <div class="row">
     <div class="col">  <%= link_to 'nuevo usuario', new_user_registration_path  %> </div>
-</div>
+    </div>
 
 </div>
 

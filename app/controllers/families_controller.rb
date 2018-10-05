@@ -1,26 +1,35 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy, ]
+  before_action :set_family, only: [:show, :edit, :update, :destroy, :add_tag]
 
   # GET /families
   # GET /families.json
   def index
+    @food = Food.all
     @families = Family.all
     if user_signed_in?
-    @users = User.where(family_id: current_user.family_id)
+      @users = User.where(family_id: current_user.family_id)
     else
-    @users = User.all
+      @users = User.all
     end
+    @event = Event.new
   end
 
   # GET /families/1
   # GET /families/1.json
-  def show
+  def add_tag
+  end
 
+  def show
+    @food = Food.all
   end
 
   # GET /families/new
   def new
-    @family = Family.new
+    @food = Food.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /families/1/edit
