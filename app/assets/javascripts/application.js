@@ -17,6 +17,8 @@
 //= require Chart.bundle
 //= require chartkick
 //= require Chart.min
+//= require select2
+//= require select2-full
 //= require ekko-lightbox.min
 //= require aos
 //= require popper

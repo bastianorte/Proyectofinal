@@ -16,8 +16,7 @@
 
     <div class="field">
       <%= f.label :sex %>
-      <%= f.number_field :sex   %>
-    </div>
+      <%= f.select :sex, options_for_select([['Hombre', 1], ['Mujer', 2] ]),{ include_blank: true } %>
 
     <div class="field">
       <%= f.label :photo %><br />
@@ -27,6 +26,16 @@
     <div class="field">
       <%= f.label :age %>
       <%= f.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= f.label :family_id %>
+      <%= f.select :family_id, options_for_select( Family.all.collect {|fa| [ fa.name, fa.id ] } ),{ include_blank: true } ,class: "familias" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :physical_activity_level %>
+      <%= f.select :physical_activity_level, options_for_select([['Sedentario (Sin actividad fisica)', 1], ['Intensidad media de deporte (2 - 3 veces a la semana)', 2], ['Intensidad alta de deporte (5 -7 veces por semana)', 3] ]),{ include_blank: true } %>
     </div>
 
     <div class="field">

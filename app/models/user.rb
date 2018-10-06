@@ -24,10 +24,30 @@ end
   before_update :to_calories
 
 def to_calories
-  self.daily_calories = 66
+  if sex == 1
+  if physical_activity_level == 1
+  self.daily_calories = (66.4 + (13.75 * weight) + (5 * height) - (6.7 * age)) * 1.2
+  elsif physical_activity_level == 2
+  self.daily_calories = (66.4 + (13.75 * weight) + (5 * height) - (6.7 * age)) * 1.6
+  else
+  self.daily_calories = (66.4 + (13.75 * weight) + (5 * height) - (6.7 * age)) * 1.9
+end
+else
+  if physical_activity_level == 1
+  self.daily_calories = (665 + (9.5 * weight) + (1.8 * height) - (4.6 * age)) * 1.2
+elsif physical_activity_level == 2
+  self.daily_calories = (665 + (9.5 * weight) + (1.8 * height) - (4.6 * age)) * 1.6
+else
+  self.daily_calories = (665 + (9.5 * weight) + (1.8 * height) - (4.6 * age)) * 1.9
+end
+end
 end
 
+before_create :to_carbohydrates
+before_update :to_carbohydrates
+
 def to_carbohydrates
+  self.daily_carbohydrates = daily_calories/10
 end
 
 end

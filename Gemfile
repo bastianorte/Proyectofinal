@@ -9,6 +9,7 @@ gem 'font-awesome-rails'
 gem 'mini_magick'
 gem "chartkick"
 gem 'chartjs-ror'
+gem "select2-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record

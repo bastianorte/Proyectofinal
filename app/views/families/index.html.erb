@@ -32,8 +32,8 @@
       <div class="card-body">
         <div class="row">
             <div class="col">Foto</div>
-            <div class="col-6">Caracteristicas</div>
-            <div class="col">Estadisticas</div>
+            <div class="col">Caracteristicas</div>
+            <div class="col-8">Estadisticas</div>
         </div>
       </div>
     </div>
@@ -44,16 +44,56 @@
       <div class="card-body">
           <div class="row">
             <div class="col"><img src="<%= user.photo.thumb %>">  </div>
-            <div class="col-6">
+            <div class="col">
                 Nombre: <%= user.name %> <br>
                 Edad: <%= user.age %><br>
                 Peso: <%= user.weight %><br>
                 Altura: <%= user.height %><br>
+                Actividad fisica <%= user.physical_activity_level %><br>
+                Carbohidratos <%= user.daily_carbohydrates %><br>
                 Email: <%= user.email %><br>
+                Familia: <%= user.email %><br>
 
             </div>
-            <div class="col"> <%= user.daily_calories %> </div>
-            <div class="col"></div>
+            <div class="col"><h3>Calorias</h3>
+                              <canvas data-calorie= "<%= user %>"  id="pie-chart<%= user.id %>" width="" height=""></canvas>
+                              <script>
+                              new Chart(document.getElementById("pie-chart<%= user.id %>"), {
+                                type: 'pie',
+                                data: {
+                                  labels: ["Calorias necesarias", "Calorias consumidas"],
+                                  datasets: [{
+                                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                                    data: [<%= user.daily_calories %>,<%= user.foods.sum(:calorie) %>]
+                                  }]
+                                },
+                                options: {
+                                }
+                              });
+
+                              </script>
+                              <br>
+            </div>
+            <div class="col"><h3>Proteinas</h3>
+                              <canvas data-calorie= "<%= user %>"  id="pie-chart<%= user.daily_proteins %>" width="" height=""></canvas>
+                              <script>
+                              new Chart(document.getElementById("pie-chart<%= user.daily_proteins %>"), {
+                                type: 'pie',
+                                data: {
+                                  labels: ["Proteinas necesarias", "Proteinas consumidas"],
+                                  datasets: [{
+                                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                                    data: [<%= user.daily_proteins %>,<%= user.foods.sum(:protein) %>]
+                                  }]
+                                },
+                                options: {
+                                }
+                              });
+
+                              </script>
+                              <br>
+            </div>
+
         </div>
           <div class="row"><div class="col">
 
@@ -102,9 +142,7 @@
 
 
 
-    <div class="row">
-    <div class="col">  <%= link_to 'nuevo usuario', new_user_registration_path  %> </div>
-    </div>
+
 
 </div>
 
