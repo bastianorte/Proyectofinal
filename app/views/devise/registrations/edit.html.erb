@@ -5,52 +5,52 @@
   <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <%= f.label :name, "Nombre" %>
+      <%= f.text_field :name, autocomplete: "name" %>
     </div>
 
     <div class="field">
-      <%= f.label :sex %>
-      <%= f.select :sex, options_for_select([['Hombre', 1], ['Mujer', 2] ]),{ include_blank: true } %>
+      <%= f.label :sex, "Genero" %>
+      <%= f.radio_button :sex, options_for_select([['Hombre', 1], ['Mujer', 2] ]),{ include_blank: true } %>
 
     <div class="field">
-      <%= f.label :photo %><br />
+      <%= f.label :photo,"Foto de perfil" %>
       <%= f.file_field :photo %>
     </div>
 
     <div class="field">
-      <%= f.label :age %>
+      <%= f.label :age,"Edad" %>
       <%= f.number_field :age %>
     </div>
 
     <div class="field">
-      <%= f.label :family_id %>
+      <%= f.label :family_id,"Familia" %>
       <%= f.select :family_id, options_for_select( Family.all.collect {|fa| [ fa.name, fa.id ] } ),{ include_blank: true } ,class: "familias" %>
     </div>
 
     <div class="field">
-      <%= f.label :physical_activity_level %>
+      <%= f.label :physical_activity_level,"Actividad fisica" %>
       <%= f.select :physical_activity_level, options_for_select([['Sedentario (Sin actividad fisica)', 1], ['Intensidad media de deporte (2 - 3 veces a la semana)', 2], ['Intensidad alta de deporte (5 -7 veces por semana)', 3] ]),{ include_blank: true } %>
     </div>
 
     <div class="field">
-      <%= f.label :height %>
+      <%= f.label :height,"Estatura" %>
       <%= f.number_field :height %>
     </div>
 
     <div class="field">
-      <%= f.label :weight %>
+      <%= f.label :weight,"Peso" %>
       <%= f.number_field :weight %>
     </div>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password,"Contraseña nueva" %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password  %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -58,23 +58,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, "Confirmar contraseña" %>
+    <%= f.password_field :password_confirmation  %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, "Contraseña actual" %> <i>(we need your current password to confirm your changes)</i>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Actualizar" , class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h4>Cerrar mi cuenta</h4>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>¿Estas seguro? <%= button_to "Cerrar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete, class: "btn btn-primary" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Atras", :back %>
 </div>
