@@ -13,6 +13,17 @@ header {
   background-color:#009AE5;
 }
 
+.banners {
+
+  background: url(<%= asset_path 'banner1' %>);
+  position: relative;
+  height: 40vh;
+  min-height: 70px;
+  background-size: cover;
+  background-color:#009AE5;
+  background-position: center;
+}
+
 .hear {
 
   background-color:#009AE5;
@@ -45,6 +56,11 @@ header {
   color: #fff;
 }
 
+.da-banner-page-text {
+  padding-top: 8rem;
+  color: #fff;
+}
+
 @media (max-width: 575.98px) {
   .da-home-page-text {
     padding-top: 8rem;
@@ -52,6 +68,10 @@ header {
   .da-home-page-text .display-3 {
     font-size: 3rem;
   }
+}
+.da-banner-page-text {
+  padding-top: 2rem;
+  color: #ddd;
 }
 
 /*Projects Style*/
@@ -134,6 +154,7 @@ header {
             column-count: 1;
   }
 }
+
 
 /* Company Brand Style */
 .da-company-brand img {

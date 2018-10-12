@@ -10,18 +10,18 @@
       <li class="nav-item"><a class="nav-link smooth-scroll" href="<%= events_path %>">Eventos</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if user_signed_in? %>
-          <%= current_user.email %>
-          <% else %>
-           Ingreso
-          <% end %>
+            <% if user_signed_in? %>
+              <%= current_user.email %>
+            <% else %>
+               Ingreso
+            <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <% if user_signed_in? %>
-          <%= link_to "Salir", destroy_user_session_path,  method: :delete, class: "dropdown-item" %>
+            <%= link_to "Salir", destroy_user_session_path,  method: :delete, class: "dropdown-item" %>
           <% else %>
-          <a class="dropdown-item" href="<%= new_user_session_path %>">Ingreso</a>
-          <a class="dropdown-item" href="<%= new_user_registration_path %>">Registro</a>
+            <a class="dropdown-item" href="<%= new_user_session_path %>">Ingreso</a>
+            <a class="dropdown-item" href="<%= new_user_registration_path %>">Registro</a>
           <% end %>
         </div>
       </li>
