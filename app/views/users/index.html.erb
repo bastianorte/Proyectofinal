@@ -1,0 +1,7 @@
+<div class="container">
+<p>hola</p>
+<% @user.each do |user| %>
+Nombre: <%= user.name %>
+<%= link_to 'Edit', edit_user_path(user) %><br>
+<% end %>
+</div>

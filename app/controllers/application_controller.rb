@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def tasks
     if user_signed_in?
       if current_user.weight == nil
-        redirect_to edit_user_registration_path
+      #  redirect_to edit_user_registration_path
       end
     end
   end

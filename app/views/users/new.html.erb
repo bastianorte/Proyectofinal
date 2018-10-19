@@ -1,8 +1,7 @@
 <div class="container pt-4">
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_with(model: @user,url: nuevo_users_path, local: true) do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -16,7 +15,7 @@
 
   <div class="field">
     <%= f.label :sex, "Genero" %>
-    <%= f.radio_button :sex, options_for_select([['Hombre', 1], ['Mujer', 2] ]),{ include_blank: true } %>
+    <%= f.select :sex, options_for_select([['Hombre', 1], ['Mujer', 2] ]) %>
   </div>
 
   <div class="field">
@@ -67,5 +66,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
 </div>
