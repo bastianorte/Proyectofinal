@@ -91,6 +91,10 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+.bannerp {
+  color: #ffffff;
+  font-size: 1.25rem;
+}
 
 abbr[title],
 abbr[data-original-title] {
@@ -6355,7 +6359,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #26b7a0 !important;
+  background-color: #666666 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,

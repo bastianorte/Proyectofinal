@@ -1,27 +1,17 @@
-<%= form_with(model: family, local: true) do |form| %>
-  <% if family.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(family.errors.count, "error") %> prohibited this family from being saved:</h2>
+  <%= form_with(model: family, local: true) do |form| %>
 
-      <ul>
-      <% family.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :photo %>
+      <%= form.text_field :photo %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

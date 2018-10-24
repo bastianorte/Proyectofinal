@@ -6,6 +6,8 @@ class FamiliesController < ApplicationController
   def index
     @food = Food.all
     @families = Family.all
+    @event = Event.new
+    
     if user_signed_in?
       @users = User.where(family_id: current_user.family_id)
     else
@@ -25,6 +27,7 @@ class FamiliesController < ApplicationController
 
   # GET /families/new
   def new
+    @family = Family.new
     @food = Food.all
     respond_to do |format|
       format.html

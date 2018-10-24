@@ -1,4 +1,5 @@
 <div class="container pt-4">
+  <img class="img-fluid" src="<%= asset_path 'logo3.png' %>" style="width:150px;" />
 <h3>Ingreso</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,7 +21,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Entrar" %>
+    <%= f.submit "Entrar" , class: "btn btn-primary" %>
   </div>
 <% end %>
 

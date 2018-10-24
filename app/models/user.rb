@@ -70,7 +70,15 @@ end
 
   def to_imc
     if !weight.nil? && !height.nil? && !age.nil?
-      self.imc = weight / (height * height / 10_000)
+      self.imc = weight / (height * height * 0.0001)
     end
   end
+
+  before_create :default
+  def default
+    if weight == nil
+      self.weight = 50
+    end
+  end
+
 end
