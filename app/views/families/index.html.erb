@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col">
           <h2><%= family.name %></h2><br>
-          <img src="<%= family.photo %>"> </div>
+          <img src="<%= family.photo %>" style="width:100px;"> </div>
           <div class="col">  <%= link_to 'Show', family %> </div>
           <div class="col">  <%= link_to 'Edit', edit_family_path(family) %> </div>
           <div class="col">  <%= link_to 'Destroy', family, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
@@ -139,7 +139,6 @@
                       <%= f.label :food_id %>
                       <%= f.collection_select(:food_id, Food.all, :id, :name) %>
                     </div>
-                    <%= f.label user.name %>
                     <%= f.hidden_field :user_id, :value => user.id %>
                   </div>
                   <div class="modal-footer">

@@ -6,8 +6,7 @@ class FamiliesController < ApplicationController
   def index
     @food = Food.all
     @families = Family.all
-    @event = Event.new
-    
+
     if user_signed_in?
       @users = User.where(family_id: current_user.family_id)
     else
