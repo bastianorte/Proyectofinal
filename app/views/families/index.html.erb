@@ -8,7 +8,7 @@
 
     <% @families.each do |family| %>
       <div class="row">
-        <div class="col">
+        <div class="col-lg col-md-12">
           <h2><%= family.name %></h2><br>
           <img src="<%= family.photo %>" style="width:100px;"> </div>
           <div class="col">  <%= link_to 'Show', family %> </div>
@@ -28,10 +28,10 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-2">Foto</div>
-          <div class="col-3">Caracteristicas</div>
-          <div class="col-4">Calorias</div>
-          <div class="col">IMC</div>
+          <div class="col-lg-2 col-md-12">Foto</div>
+          <div class="col-lg-3 col-md-12">Caracteristicas</div>
+          <div class="col-lg-4 col-md-12">Calorias</div>
+          <div class="col-lg col-md-12">IMC</div>
         </div>
       </div>
     </div>
@@ -46,10 +46,10 @@
         <!--iniciorow-->
         <div class="row">
           <!--iniciocaracteristicas-->
-          <div class="col-md-2 col-sm-12">
+          <div class="col-lg-2 col-md-12">
             <img src="<%= user.photo.thumb %>" style="width:150px;">
           </div>
-          <div class="col-md-3 col-sm-12">
+          <div class="col-lg-3 col-md-12">
             <%# if can?(:read, user) %>
             <h4><%= user.name %></h4> <br>
             <%= user.id %> id<br>
@@ -64,7 +64,7 @@
           </div>
           <!--fincaracteristicas-->
           <!--iniciocalorias-->
-          <div class="col-md-4 col-sm-12">
+          <div class="col-lg-4 col-md-12">
 
             <canvas data-calorie= "<%= user %>"  id="pie-chart<%= user.id %>"></canvas>
             <script>
@@ -88,7 +88,7 @@
           </div>
           <!--fincalorias-->
           <!--iniciobarraimc-->
-          <div class="col-md col-sm-12">
+          <div class="col-lg col-md-12">
             <h3>IMC = <%= user.imc %></h3>
             <% if user.imc != nil %>
               <% if user.imc <= 18 %>
@@ -123,8 +123,8 @@
           <!--iniciomodal-->
           <div class="row">
             <div class="col">
-              <%= link_to 'Nuevo alimento', new_family_path,  { 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary mr-3'}  %>
-              <div id="modal-window" class="modal" role="dialog" aria-labelledby="myModalLabel">
+              <%= link_to 'Nuevo alimento', new_family_path,  { 'data-toggle' =>  "modal", 'data-target' => "#modal-window-#{user.id}", class: 'btn btn-primary mr-3'}  %>
+              <div id="modal-window-<%=user.id%>" class="modal" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -138,6 +138,10 @@
                     <div class="field">
                       <%= f.label :food_id %>
                       <%= f.collection_select(:food_id, Food.all, :id, :name) %>
+                    </div>
+                    <div class="field">
+                      <%= f.label :portion %>
+                      <%= f.number_field :portion %>
                     </div>
                     <%= f.hidden_field :user_id, :value => user.id %>
                   </div>

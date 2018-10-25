@@ -2,15 +2,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Food:</strong>
-  <%= @event.food %>
+  <strong>Comida:</strong>
+  <%= @event.food.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
+  <strong>Usuario:</strong>
+  <%= @event.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Editar', edit_event_path(@event) %> |
+<%= link_to 'Volver', events_path %>
 </div>

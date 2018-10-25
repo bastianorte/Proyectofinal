@@ -2,20 +2,19 @@
 <div class="container">
 
 
-<h1>Foods</h1>
+<h1>Comidas</h1>
 
 <div class="card">
   <div class="card-body">
     <div class="row">
-        <div class="col">Photo</div>
-        <div class="col">Name</div>
-        <div class="col">Protein</div>
-        <div class="col">Calorie</div>
-        <div class="col">Carbohydrate</div>
-        <div class="col">Portion</div>
-        <div class="col">Show</div>
-        <div class="col">Edit</div>
-        <div class="col">Destroy</div>
+        <div class="col">Foto</div>
+        <div class="col">Nombre</div>
+        <div class="col">Proteinas</div>
+        <div class="col">Calorias</div>
+        <div class="col">Carbohidratos</div>
+        <div class="col">Ver</div>
+        <div class="col">Editar</div>
+        <div class="col">Eliminar</div>
     </div>
     </div>
     </div>
@@ -32,10 +31,9 @@
         <div class="col"><%= food.protein %></div>
         <div class="col"><%= food.calorie %></div>
         <div class="col"><%= food.carbohydrate %></div>
-        <div class="col"><%= food.portion %></div>
-        <div class="col"><%= link_to 'Show', food %></div>
-        <div class="col"><%= link_to 'Edit', edit_food_path(food) %></div>
-        <div class="col"><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div class="col"><%= link_to 'Ver', food, class: "btn btn-primary"%></div>
+        <div class="col"><%= link_to 'Editar', edit_food_path(food), class: "btn btn-primary"%></div>
+        <div class="col"><%= link_to 'Eliminar', food, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%></div>
   </div>
     </div>
       </div>
