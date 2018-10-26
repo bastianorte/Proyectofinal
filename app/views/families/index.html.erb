@@ -139,10 +139,7 @@
                       <%= f.label :food_id %>
                       <%= f.collection_select(:food_id, Food.all, :id, :name, {include_blank: true}, {id: "prueba",}) %>
                     </div>
-                    <div class="field">
-                      <%= f.label :portion %>
-                      <%= f.number_field :portion %>
-                    </div>
+
                     <%= f.hidden_field :user_id, :value => user.id %>
                   </div>
                   <div class="modal-footer">
