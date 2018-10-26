@@ -6,9 +6,11 @@ class Event < ApplicationRecord
   before_update :to_portions
 
   def to_portions
+    if portion != nil
       self.calorie = food.calorie * portion
       self.protein = food.protein * portion
       self.carbohidrate = food.carbohydrate * portion
+    end  
   end
 
 
