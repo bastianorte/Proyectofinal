@@ -1,6 +1,6 @@
 # Aplicación Yomy
 
-![Scheme](vendor/images/logo.png)
+![Scheme](vendor/images/logo2.png)
 
 Aplicación para información nutricional a traves de una dieta sana.
 
