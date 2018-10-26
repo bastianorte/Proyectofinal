@@ -7,31 +7,25 @@
 
 
     <% @families.each do |family| %>
-      <div class="row">
-        <div class="col-lg col-md-12">
-          <h2><%= family.name %></h2><br>
-          <img src="<%= family.photo %>" style="width:100px;"> </div>
-          <div class="col">  <%= link_to 'Show', family %> </div>
-          <div class="col">  <%= link_to 'Edit', edit_family_path(family) %> </div>
-          <div class="col">  <%= link_to 'Destroy', family, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+      <div class="row p-3">
+          <div class="col-lg-2 col-md-12"><img src="<%= family.photo %>" style="width:100px;"> </div>
+          <div class="col-lg-3 col-md-12"><h1><%= family.name %></h2></div>
+          <div class="col-lg-2 col-md-4 px-auto"  >  <%= link_to 'Ver', family, class: "btn btn-primary" %> </div>
+          <div class="col-lg-2 col-md-4 px-auto">  <%= link_to 'Editar', edit_family_path(family), class: "btn btn-primary" %> </div>
+          <div class="col-lg-2 col-md-4 px-auto">  <%= link_to 'Eliminar', family, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %> </div>
       </div>
     <% end %>
 
-    <div class="row">
-      <%= link_to 'New Family', new_family_path %>
-    </div>
-
-    <div class="row">
-    <h1>Usuarios</h1>
-    </div>
 
     <div class="card">
       <div class="card-body">
         <div class="row">
+          <% if can?(:manage,:user) %>
           <div class="col-lg-2 col-md-12">Foto</div>
           <div class="col-lg-3 col-md-12">Caracteristicas</div>
           <div class="col-lg-4 col-md-12">Calorias</div>
           <div class="col-lg col-md-12">IMC</div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -163,8 +157,13 @@
     <% end %>
     <!--finusuarios-->
     <div class="row p-2">
-      <div class="col">
+      <div class="col-sm-6">
         <%= link_to 'Nuevo Usuario', new_user_path, class: "btn btn-primary" %>
+      </div>
+      <div class="col-sm-6">
+        <%= link_to 'New Family', new_family_path, class: "btn btn-primary" %>
+      </div>
+      <div class="col">
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy, :add_tag]
+  authorize_resource
   # GET /families
   # GET /families.json
   def index
@@ -8,8 +9,6 @@ class FamiliesController < ApplicationController
 
     if user_signed_in?
       @users = User.where(family_id: current_user.family_id)
-    else
-      @users = User.all
     end
     @event = Event.new
   end

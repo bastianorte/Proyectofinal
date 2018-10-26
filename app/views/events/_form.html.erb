@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :food_id %>
-    <%= form.text_field :food_id %>
+    <%= form.label :food_id, "Comida" %>
+    <%= form.select :food_id, options_for_select( Food.all.collect {|fa| [ fa.name, fa.id ] } ),{ include_blank: true } %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :user_id, "Usuario" %>
+    <%= form.select :user_id, options_for_select( User.all.collect {|fa| [ fa.name, fa.id ] } ),{ include_blank: true } %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "btn btn-primary" %>
   </div>
 <% end %>

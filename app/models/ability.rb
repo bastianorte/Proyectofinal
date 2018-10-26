@@ -6,6 +6,9 @@ class Ability
     #
        user ||= User.new # guest user (not logged in)
        can :manage, User,  :family_id => user.family_id
+       can :manage, Family
+       can :manage, Food
+       can :manage, Event
     #   can :read, User, :family_id => {:user_id => user_id}
     #   if user.admin?
     #     can :manage, :all

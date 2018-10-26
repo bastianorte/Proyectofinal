@@ -2,40 +2,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @food.name %>
 </p>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @food.weight %>
-</p>
 
 <p>
-  <strong>Protein:</strong>
+  <strong>Proteinas:</strong>
   <%= @food.protein %>
 </p>
 
 <p>
-  <strong>Calorie:</strong>
+  <strong>Calorias:</strong>
   <%= @food.calorie %>
 </p>
 
 <p>
-  <strong>Carbohydrate:</strong>
+  <strong>Carbohidratos:</strong>
   <%= @food.carbohydrate %>
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong>Foto:</strong>
   <%= @food.photo %>
 </p>
 
-<p>
-  <strong>Portion:</strong>
-  <%= @food.portion %>
-</p>
 
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<%= link_to 'Editar', edit_food_path(@food) %> |
+<%= link_to 'Volver', foods_path %>
 </div>

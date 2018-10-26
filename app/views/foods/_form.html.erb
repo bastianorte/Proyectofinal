@@ -12,41 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, "Nombre" %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :weight %>
-    <%= form.number_field :weight %>
-  </div>
-
-  <div class="field">
-    <%= form.label :protein %>
+    <%= form.label :protein, "Proteinas" %>
     <%= form.number_field :protein %>
   </div>
 
   <div class="field">
-    <%= form.label :calorie %>
+    <%= form.label :calorie, "Calorias" %>
     <%= form.number_field :calorie %>
   </div>
 
   <div class="field">
-    <%= form.label :carbohydrate %>
+    <%= form.label :carbohydrate, "Carbohidratos" %>
     <%= form.number_field :carbohydrate %>
   </div>
 
   <div class="field">
-    <%= form.label :photo %>
+    <%= form.label :photo, "Foto" %>
     <%= form.file_field :photo %>
   </div>
 
-  <div class="field">
-    <%= form.label :portion %>
-    <%= form.number_field :portion %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "btn btn-primary" %>
   </div>
 <% end %>
