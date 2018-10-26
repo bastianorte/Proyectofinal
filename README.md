@@ -1,24 +1,9 @@
-# README
+# Aplicación Yomy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación para información nutricional a traves de una dieta sana.
 
-Things you may want to cover:
+* Al abrir la app por primera vez
 
-* Ruby version
+* Generar bases de datos
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Generar seed
