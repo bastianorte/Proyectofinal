@@ -36,6 +36,10 @@
     <%= form.file_field :photo %>
   </div>
 
+  <div class="field">
+    <%= form.label :description, "Descripción" %>
+    <%= form.text_area :description %>
+  </div>
 
   <div class="actions">
     <%= form.submit "Enviar", class: "btn btn-primary" %>

@@ -1,8 +1,9 @@
 $(function() {
-	$("#prueba").change(function() {
-  	var id = $("#prueba").val();
-    $.get("/foods/"+id).success(function(data) {
-    	$("#nombre").text(data.name);
+	$(".prueba").change(function() {
+  	var id = $(this).val();
+		var elementoNombre = $(this).data('nombre');
+    $.get("/foods/"+id+".json", function(data) {
+    	$(elementoNombre).text(data.description);
     })
   });
 });

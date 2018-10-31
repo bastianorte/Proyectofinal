@@ -26,7 +26,10 @@
   <strong>Foto:</strong>
   <%= @food.photo %>
 </p>
-
+<p>
+  <strong>Descripción:</strong>
+  <%= @food.description %>
+</p>
 
 <%= link_to 'Editar', edit_food_path(@food) %> |
 <%= link_to 'Volver', foods_path %>

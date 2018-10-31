@@ -5,32 +5,25 @@
 
     <p id="notice"><%= notice %></p>
 
-
-    <% @families.each do |family| %>
+<% if current_user.family != nil %>
       <div class="row p-3">
-          <div class="col-lg-2 col-md-12"><img src="<%= family.photo %>" style="width:100px;"> </div>
-          <div class="col-lg-3 col-md-12"><h1><%= family.name %></h2></div>
-          <div class="col-lg-2 col-md-4 px-auto"  >  <%= link_to 'Ver', family, class: "btn btn-primary" %> </div>
-          <div class="col-lg-2 col-md-4 px-auto">  <%= link_to 'Editar', edit_family_path(family), class: "btn btn-primary" %> </div>
-          <div class="col-lg-2 col-md-4 px-auto">  <%= link_to 'Eliminar', family, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %> </div>
+          <div class="col-lg-2 col-md-12"><img src="<%= current_user.family.photo %>" style="width:100px;"> </div>
+          <div class="col-lg-3 col-md-12"><h1><%= current_user.family.name %></h2></div>
       </div>
-    <% end %>
-
+<% end %>
 
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <% if can?(:manage,:user) %>
           <div class="col-lg-2 col-md-12">Foto</div>
           <div class="col-lg-3 col-md-12">Caracteristicas</div>
           <div class="col-lg-4 col-md-12">Calorias</div>
           <div class="col-lg col-md-12">IMC</div>
-          <% end %>
         </div>
       </div>
     </div>
 
-
+<%# if can?(:manage,:user) %>
     <!--iniciousuarios-->
     <% @users.each do |user| %>
     <!--iniciocard-->
@@ -44,17 +37,18 @@
             <img src="<%= user.photo.thumb %>" style="width:150px;">
           </div>
           <div class="col-lg-3 col-md-12">
-            <%# if can?(:read, user) %>
             <h4><%= user.name %></h4> <br>
-            <%= user.id %> id<br>
             <%= user.age %> años<br>
             <%= user.weight %> kilogramos<br>
             <%= user.height %> centimetros<br>
-            <%= user.physical_activity_level %><br>
-            <%= user.daily_carbohydrates %> grs<br>
-            <%= user.email %><br>
-            <%= link_to 'Edit', edit_user_path(user) %><br>
-            <%# end %>
+            <% if user.physical_activity_level == 2 %>
+            Actividad fisica moderada
+            <% elsif user.physical_activity_level == 3 %>
+            Actividad fisica intensa
+            <% else %>
+            Actividad fisica sedentaria
+            <% end %><br>
+            <%= link_to 'Editar usuario', edit_user_path(user) %><br>
           </div>
           <!--fincaracteristicas-->
           <!--iniciocalorias-->
@@ -121,28 +115,44 @@
               <div id="modal-window-<%=user.id%>" class="modal" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                  <!--iniciomodalheader-->
                   <div class="modal-header">
                     <h5 class="modal-title">Nuevo alimento </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                <!--finmodalheader-->
+                <!--iniciomodalbody-->
                 <div class="modal-body">
-                    <%= form_for(@event) do |f| %>
-                    <div class="field">
-                      <%= f.label :food_id %>
-                      <%= f.collection_select(:food_id, Food.all, :id, :name, {include_blank: true}, {id: "prueba",}) %>
-                    </div>
+                    <div "row">
+                      <div "col">
+                        <%= form_for(@event) do |f| %>
+                        <div class="field">
+                          <%= f.label :food_id %>
+                          <%= f.collection_select(:food_id, Food.all, :id, :name, {include_blank: true}, {class: "prueba", data: { nombre: "#nombre-#{user.id}"}}) %>
+                        </div>
 
-                    <%= f.hidden_field :user_id, :value => user.id %>
+                        <%= f.hidden_field :user_id, :value => user.id %>
+                      </div>
+                      <div "col">
+                        <div class="row">
+                          <div class="col-1 da-project-icon"><i class="fas fa-utensils"></i></div>
+                          <div class="col-10">
+                            <div id="nombre-<%=user.id%>"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <!--finmodalbody-->
+                  <!--iniciomodalfooter-->
                   <div class="modal-footer">
                     <%= f.submit "Enviar", class: "btn btn-primary" %>
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <% end %>
-                    <div id="nombre">
-                    </div>
                   </div>
+                  <!--finmodalfooter-->
                 </div>
               </div>
             </div>
@@ -156,6 +166,7 @@
     <!--fincard-->
     <% end %>
     <!--finusuarios-->
+    <%# end %>
     <div class="row p-2">
       <div class="col-sm-6">
         <%= link_to 'Nuevo Usuario', new_user_path, class: "btn btn-primary" %>

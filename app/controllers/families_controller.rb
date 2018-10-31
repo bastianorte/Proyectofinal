@@ -4,22 +4,29 @@ class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json
   def index
-    @food = Food.all
-    @families = Family.all
-
     if user_signed_in?
-      @users = User.where(family_id: current_user.family_id)
-    end
+    @food = Food.all
+    @family = Family.find_by(id: current_user.family_id)
+    @users = User.where(family_id: current_user.family_id)
     @event = Event.new
+    end
   end
 
   # GET /families/1
   # GET /families/1.json
-  def add_tag
+  def loads
+    @food = Food.all
+    respond_to do |format|
+      format.json {render json: {"hola" => "juan"}, status: :ok}
+    end
   end
 
   def show
     @food = Food.all
+    respond_to do |format|
+      format.html
+      format.json {render json: {"hola" => "juan"}, status: :ok}
+    end
   end
 
   # GET /families/new

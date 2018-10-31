@@ -7,14 +7,10 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-        <div class="col">Foto</div>
-        <div class="col">Nombre</div>
-        <div class="col">Proteinas</div>
-        <div class="col">Calorias</div>
-        <div class="col">Carbohidratos</div>
-        <div class="col">Ver</div>
-        <div class="col">Editar</div>
-        <div class="col">Eliminar</div>
+        <div class="col-lg-2 col-md-12">Foto</div>
+        <div class="col-lg-3 col-md-12">Nombre</div>
+        <div class="col-lg-5 col-md-12">Porción</div>
+        <div class="col-lg-2 col-md-12">Ver</div>
     </div>
     </div>
     </div>
@@ -26,14 +22,14 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-        <div class="col"><img src="<%= food.photo.thumb %>"></div>
-        <div class="col"><%= food.name %></div>
-        <div class="col"><%= food.protein %></div>
-        <div class="col"><%= food.calorie %></div>
-        <div class="col"><%= food.carbohydrate %></div>
-        <div class="col"><%= link_to 'Ver', food, class: "btn btn-primary"%></div>
-        <div class="col"><%= link_to 'Editar', edit_food_path(food), class: "btn btn-primary"%></div>
-        <div class="col"><%= link_to 'Eliminar', food, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%></div>
+        <div class="col-lg-2 col-md-12"><img src="<%= food.photo.thumb %>"></div>
+        <div class="col-lg-3 col-md-12"><strong>Nombre:</strong> <%= food.name %><br>
+          <strong>Proteinas:</strong> <%= food.protein %>gr<br>
+          <strong>Calorias:</strong> <%= food.calorie %>gr<br>
+          <strong>Carbohidratos:</strong> <%= food.carbohydrate %>gr
+        </div>
+        <div class="col-lg-5 col-md-12"><%= food.description %></div>
+        <div class="col-lg-2 col-md-12"><%= link_to 'Ver', food, class: "btn btn-primary"%></div>
   </div>
     </div>
       </div>
@@ -42,6 +38,5 @@
 
 
 
-<%= link_to 'New Food', new_food_path %>
 
 </div>

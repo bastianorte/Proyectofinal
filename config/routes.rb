@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :families
+  resources :families do
+    collection do
+      get "loads"
+    end
+  end
   resources :events
   resources :foods
-
   get '/random_background.jpg', to: 'background#image'
   root 'families#index'
   devise_for :users, controllers: { registrations: 'users/registrations', :omniauth_callbacks=>"users/omniauth_callbacks" }

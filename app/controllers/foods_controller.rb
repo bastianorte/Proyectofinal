@@ -10,6 +10,10 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @food }
+    end
   end
 
   # GET /foods/new
@@ -69,6 +73,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:name, :weight, :protein, :calorie, :carbohydrate, :photo, :portion)
+      params.require(:food).permit(:name, :weight, :protein, :calorie, :carbohydrate, :photo, :portion, :description)
     end
 end
